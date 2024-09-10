@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1182</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>3DViewer v1.0 (by juliennl, waldoneo, erickaka)</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">MainWindow {
+	/*background-color: rgb(34, 35, 39);*/
+	
+	background-color: rgb(54, 55, 59);
+}
+
+QPushButton {
+	/*background-color: rgb(226, 151, 0);
+	background-color: rgb(173, 152, 113);*/
+	background-color: rgb(232, 204, 152);
+  border-radius: 10px;
+  color: #000000;
+  height: 25px;
+  width: auto;
+  font:  bold 10pt &quot;Arial&quot;;
+  text-align: center;
+}
+
+QPushButton:hover {
+	background-color: rgb(185, 163, 121);
+}
+
+QPushButton:pressed {
+  background-color: gray;
+  color: white;
+}
+
+QPushButton:disabled {
+  background-color: gray;
+  color: white;
+}
+
+QStatusBar {
+	color: rgb(255, 255, 255);
+	background-color: rgb(90, 90, 90);
+}
+
+QLineEdit {
+	border : 2px solid black;
+	background : white;
+	height: 23px;
+	font: bold 9pt &quot;Arial&quot;;
+}
+
+QLineEdit::hover {
+	border : 2px solid orange;
+	background-color: rgb(255, 224, 167);
+}
+
+QDoubleSpinBox {
+	border : 2px solid black;
+	background : white;
+	height: 20px;
+	font: bold 9pt &quot;Arial&quot;;
+}
+QDoubleSpinBox::hover {
+	border : 2px solid orange;
+	background-color: rgb(255, 224, 167);
+}
+
+QSlider::groove:horizontal {
+    border: 2px solid black;
+    border-radius: 3px;
+    height: 8px; 
+    background: white;
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+	background-color: rgb(232, 204, 152);
+    border: 1px solid black;
+    width: 10px;
+    margin: -2px 0; 
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal::hover {
+    border: 2px solid #ff6600;
+    background: orange;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="mainwidget" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="OpenGLWidget" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>972</width>
+           <height>729</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayoutSettings">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Choose File</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="ControlWidget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>198</width>
+             <height>700</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>188</width>
+             <height>702</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel  {
+  	height: 25px;
+	color: rgb(255, 255, 255);
+  font: bold 9pt &quot;Arial&quot;;
+  text-align: center;
+}</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_20">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="TransformWidget" native="true">
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <property name="spacing">
+                <number>3</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>3</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="labelTransform">
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Transform</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_2">
+                   <item>
+                    <widget class="QLabel" name="labelXTrans">
+                     <property name="text">
+                      <string>X:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="xTransSpinBox">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <item>
+                    <widget class="QLabel" name="labelYTrans">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="yTransSpinBox">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <item>
+                    <widget class="QLabel" name="labelZTrans">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="zTransSpinBox">
+                     <property name="minimum">
+                      <double>-100.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>100.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QSlider" name="xTransSlider">
+                 <property name="minimum">
+                  <number>-100</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSlider" name="yTransSlider">
+                 <property name="minimum">
+                  <number>-100</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSlider" name="zTransSlider">
+                 <property name="minimum">
+                  <number>-100</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="RotateWidget" native="true">
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="spacing">
+                <number>3</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="labelRotate">
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Rotate</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_5">
+                   <item>
+                    <widget class="QLabel" name="labelXRot">
+                     <property name="text">
+                      <string>X:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="xRotSpinBox">
+                     <property name="minimum">
+                      <double>-360.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>360.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <item>
+                    <widget class="QLabel" name="labelYRot">
+                     <property name="text">
+                      <string>Y:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="yRotSpinBox">
+                     <property name="minimum">
+                      <double>-360.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>360.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="labelZRot">
+                     <property name="text">
+                      <string>Z:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDoubleSpinBox" name="zRotSpinBox">
+                     <property name="minimum">
+                      <double>-360.000000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>360.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QSlider" name="xRotSlider">
+                 <property name="minimum">
+                  <number>-180</number>
+                 </property>
+                 <property name="maximum">
+                  <number>180</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSlider" name="yRotSlider">
+                 <property name="minimum">
+                  <number>-180</number>
+                 </property>
+                 <property name="maximum">
+                  <number>180</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSlider" name="zRotSlider">
+                 <property name="minimum">
+                  <number>-180</number>
+                 </property>
+                 <property name="maximum">
+                  <number>180</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="ScaleWidget" native="true">
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>17</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="labelScale">
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item>
+                  <widget class="QDoubleSpinBox" name="scaleSpinBox">
+                   <property name="decimals">
+                    <number>4</number>
+                   </property>
+                   <property name="minimum">
+                    <double>0.000100000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>1.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BackGroundColor">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Set background color</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
+              <property name="spacing">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelVertex">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Vertex </string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item>
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>Type</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="VertexTypeButton">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>None</string>
+                    </property>
+                    <property name="checkable">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <item>
+                   <widget class="QLabel" name="label_8">
+                    <property name="text">
+                     <string>Size</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="vertexSizeSpinBox">
+                    <property name="minimum">
+                     <double>0.010000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>1.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_14">
+                  <item>
+                   <widget class="QLabel" name="label_9">
+                    <property name="text">
+                     <string>Color</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pointColor">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_18">
+              <property name="spacing">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelEdges">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Edges</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_16">
+                  <item>
+                   <widget class="QLabel" name="label_11">
+                    <property name="text">
+                     <string>Type</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="DashedEdges">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Solid</string>
+                    </property>
+                    <property name="checkable">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_17">
+                  <item>
+                   <widget class="QLabel" name="label_13">
+                    <property name="text">
+                     <string>Size</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="edgeSizeSpinBox">
+                    <property name="minimum">
+                     <double>0.010000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>1.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <item>
+                   <widget class="QLabel" name="label_12">
+                    <property name="text">
+                     <string>Color</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="edgeColor">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_15">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Projection type</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="OrthoProjection">
+                <property name="text">
+                 <string>Perspective</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_19">
+              <property name="spacing">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	font: bold italic 10pt;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Record</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QPushButton" name="ScreenShot">
+                  <property name="text">
+                   <string>Screenshot</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="RecordGif">
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton::hover {
+	background-color: rgb(255, 92, 51);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>GIF</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
